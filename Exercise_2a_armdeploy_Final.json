@@ -4,8 +4,8 @@
   "parameters": {
     "adminPassword": {
       "type": "securestring",
-      "value": null
-    },
+	  "defaultValue": "Password123456"
+          },
     "location": {
       "type": "String",
       "defaultValue": "eastus",
