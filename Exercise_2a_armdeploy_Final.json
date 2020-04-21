@@ -4,8 +4,8 @@
   "parameters": {
     "adminPassword": {
       "type": "securestring",
-	  "defaultValue": "Password123456"
-          },
+      "defaultValue": "Password123456"
+    },
     "location": {
       "type": "String",
       "defaultValue": "eastus",
@@ -63,7 +63,7 @@
     },
     "_artifactsLocation": {
       "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/Lalums/Dsc/master/Shutdown.ps1.zip"
+      "defaultValue": "https://raw.githubusercontent.com/Lalums/Dsc/master/Foldercreation.ps1.zip"
 
     }
   },
@@ -85,7 +85,7 @@
     "vmStorageAccountContainerName": "vhds",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('Networkname'))]",
     "FoldercreationArchiveFolder": "DSC",
-    "FoldercreationArchiveFileName": "Shutdown.zip"
+    "FoldercreationArchiveFileName": "Foldercreation.zip"
   },
   "resources": [
     {
@@ -248,7 +248,7 @@
             "[resourceId('Microsoft.Compute/virtualMachines', concat(parameters('vmname')[copyIndex()]))]"
           ],
           "tags": {
-            "displayName": "Shutdown"
+            "displayName": "Foldercreation"
           },
           "properties": {
             "publisher": "Microsoft.Powershell",
@@ -258,8 +258,8 @@
             "settings": {
               "configuration": {
                 "url": "[parameters('_artifactsLocation')]",
-                "script": "Shutdown.ps1.ps1",
-                "function": "Shutdown"
+                "script": "Foldercreation.ps1",
+                "function": "Foldercreation"
               },
               "configurationArguments": {
                 "MachineName": "[concat(parameters('vmname')[copyIndex()])]"
